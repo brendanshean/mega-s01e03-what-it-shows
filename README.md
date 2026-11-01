@@ -23,6 +23,9 @@ rendered/          generated HTML, JavaScript and CSS for the desk
 ```
 
 The signed investigation is at `src/routes/kb/incidents/4471-split/+page.svx`.
+Its generated page is `rendered/kb/incidents/4471-split/index.html`.
+The findings are tracked in [parser issue #1](https://github.com/brendanshean/mega-s01e03-what-it-shows/issues/1)
+and [form-hint issue #2](https://github.com/brendanshean/mega-s01e03-what-it-shows/issues/2).
 Its `IncidentSummary` component removes overlapping report IDs, then uses the
 export's `causes.ts` and tenant directory to count each cause. Intake tags do not
 determine the counts. The original incident and accepted decision remain as

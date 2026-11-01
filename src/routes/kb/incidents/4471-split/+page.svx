@@ -29,6 +29,8 @@ time from the reports and tenant directory, using `uniqueById`, `causeOf` and
 
 ## Parser problem
 
+[GitHub issue: shared parser](https://github.com/brendanshean/mega-s01e03-what-it-shows/issues/1).
+
 The shared parser reads every date month first. Day-first tenants supplying dates
 through the app, email or the older booking form can therefore have the month and
 day reversed. For example, report R-41200 from harbour.dental describes a 7 April
@@ -40,6 +42,8 @@ an unambiguous date representation. Verify both an ambiguous date and a day abov
 acceptance checks; the production parser is not included in this KB export.
 
 ## Form-hint problem
+
+[GitHub issue: booking-v3 hint](https://github.com/brendanshean/mega-s01e03-what-it-shows/issues/2).
 
 For a day-first tenant on booking-v3, the form displays `MM/DD/YYYY` while interpreting
 the entry in the tenant's day-first order. A person following the hint can therefore
