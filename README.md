@@ -23,6 +23,7 @@ rendered/          generated HTML, JavaScript and CSS for the desk
 ```
 
 The signed investigation is at `src/routes/kb/incidents/4471-split/+page.svx`.
+Its signature is the course-issued start ticket, passed unchanged to `RenderStamp`.
 Its generated page is `rendered/kb/incidents/4471-split/index.html`.
 The findings are tracked in [parser issue #1](https://github.com/brendanshean/mega-s01e03-what-it-shows/issues/1)
 and [form-hint issue #2](https://github.com/brendanshean/mega-s01e03-what-it-shows/issues/2).

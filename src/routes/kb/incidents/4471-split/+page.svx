@@ -4,7 +4,7 @@ title: '#4471 · separate parser and form-hint problems'
 owner: brendanshean
 status: closed
 reviewed: '2026-11-01'
-signature: 'Codex for brendanshean · S01E03 · 2026-11-01'
+signature: 'v1.eyJzdWIiOiIyMDI4IiwiYXVkIjoiY2hhbGxlbmdlOndoYXQtaXQtc2hvd3MiLCJpYXQiOjE3OTM1NTkyODUsImV4cCI6MTc5MzY0NTY4NX0.ZjyedNzwUbLwELWVpqh4bmwDS11XZ1i0VAkToVhZY6o'
 ---
 
 <script>
