@@ -26,6 +26,9 @@ The signed investigation is at `src/routes/kb/incidents/4471-split/+page.svx`.
 Its generated page is `rendered/kb/incidents/4471-split/index.html`.
 The findings are tracked in [parser issue #1](https://github.com/brendanshean/mega-s01e03-what-it-shows/issues/1)
 and [form-hint issue #2](https://github.com/brendanshean/mega-s01e03-what-it-shows/issues/2).
+The course's 5 October engineering update resolves the parser as fixed and the
+form-hint issue as won't fix because booking-v3 was retired. The signed page
+records those separate outcomes alongside the historical export counts.
 Its `IncidentSummary` component removes overlapping report IDs, then uses the
 export's `causes.ts` and tenant directory to count each cause. Intake tags do not
 determine the counts. The original incident and accepted decision remain as

@@ -2,7 +2,7 @@
 layout: runbook
 title: '#4471 · separate parser and form-hint problems'
 owner: brendanshean
-status: investigated
+status: closed
 reviewed: '2026-11-01'
 signature: 'Codex for brendanshean · S01E03 · 2026-11-01'
 ---
@@ -18,6 +18,20 @@ signature: 'Codex for brendanshean · S01E03 · 2026-11-01'
 The original [incident page](/kb/incidents/4471/) says one issue and one queued fix.
 The exported data and the KB's running classification separate two problems. Fixing
 the shared parser does not establish that the booking form's hint is correct.
+
+## Engineering outcome · 5 October 2026
+
+The [course's engineering update](https://hq.mega.dev/challenges/what-it-shows#engineering-update)
+closes #4471 with different outcomes for its two causes:
+
+- **Parser: fixed.** Engineering reports `fix(dates): parse dd/mm for eu locales`.
+  The parser issue is closed as completed on that evidence.
+- **Form hint: won't fix.** The booking-v3 form was retired. The hint issue is
+  closed as not planned; retirement is not a claim that its hint was repaired.
+
+The counts below remain the historical 4 October export. The production fix and
+retirement are reported by the course; this repository contains the investigation
+and rendered KB, not the production implementation.
 
 ## Distinct reports and causes
 

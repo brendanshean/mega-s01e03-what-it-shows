@@ -1,5 +1,9 @@
 booking-v3 displays `MM/DD/YYYY` to day-first tenants but interprets the entry in the tenant's day-first order. Split this form-hint problem out of the course support desk's merged ticket #4471.
 
+## Resolution
+
+**Won't fix — not planned.** The [course engineering update](https://hq.mega.dev/challenges/what-it-shows#engineering-update) closes #4471 on 5 October 2026 and says the booking-v3 form was retired. This issue is closed as not planned because the affected form was retired. The hint was not reported as fixed; the historical 33 reports remain valid.
+
 ## Report count
 
 **33 distinct reports**, spanning 3 tenants (alder.physio, copper.studio and pale.harbour), received 2026-04-17 through 2026-09-22. This count is from the 2026-10-04 KB export.
