@@ -1,0 +1,82 @@
+---
+layout: runbook
+title: '#4471 · separate parser and form-hint problems'
+owner: brendanshean
+status: investigated
+reviewed: '2026-11-01'
+signature: 'Codex for brendanshean · S01E03 · 2026-11-01'
+---
+
+<script>
+  import IncidentSummary from '#lib/kb/IncidentSummary.svelte';
+  import CauseTable from '#lib/kb/CauseTable.svelte';
+  import QueueTimeline from '#lib/kb/QueueTimeline.svelte';
+  import DedupeExplorer from '#lib/kb/DedupeExplorer.svelte';
+  import RenderStamp from '#lib/kb/RenderStamp.svelte';
+</script>
+
+The original [incident page](/kb/incidents/4471/) says one issue and one queued fix.
+The exported data and the KB's running classification separate two problems. Fixing
+the shared parser does not establish that the booking form's hint is correct.
+
+## Distinct reports and causes
+
+<IncidentSummary />
+
+These counts describe the export dated 4 October 2026. They are computed at render
+time from the reports and tenant directory, using `uniqueById`, `causeOf` and
+`groupByCause`. They do not claim to represent later changes at the desk.
+
+## Parser problem
+
+The shared parser reads every date month first. Day-first tenants supplying dates
+through the app, email or the older booking form can therefore have the month and
+day reversed. For example, report R-41200 from harbour.dental describes a 7 April
+reminder going out on 4 July. Its tenant locale is en-GB.
+
+The parser should interpret a date using the applicable tenant's format, or accept
+an unambiguous date representation. Verify both an ambiguous date and a day above
+12, and preserve correct behavior for month-first tenants. These are proposed
+acceptance checks; the production parser is not included in this KB export.
+
+## Form-hint problem
+
+For a day-first tenant on booking-v3, the form displays `MM/DD/YYYY` while interpreting
+the entry in the tenant's day-first order. A person following the hint can therefore
+submit a different date. This affects form reports from alder.physio, copper.studio
+and pale.harbour in this export.
+
+For example, R-41230 is a copper.studio form report about 6 January becoming 1 June.
+It was tagged `parser` at intake, but the tenant and form classify it as `hint`.
+The hint and input interpretation must agree. Verify booking-v3 for day-first and
+month-first tenants, and confirm that the fix also preserves booking-v2 behavior.
+
+## What the original ticket contains
+
+This is the unchanged export view. Its missing-ticket warning describes the desk's
+original merged ticket, before the separate GitHub issues prepared for this review.
+
+<CauseTable ticket={4471} />
+
+## Intake and merge history
+
+The timeline distinguishes when reports arrived from when they were merged.
+A burst of merges is not evidence of a burst of newly occurring failures.
+
+<QueueTimeline ticket={4471} />
+
+## Dedupe recommendation
+
+The accepted [decision 0001](/kb/decisions/0001-dedupe-by-subject/) and the
+[triage instructions](/kb/triage/dedupe/) use normalized subjects. Keep that accepted
+record intact. Replace its policy through a new decision: look up the tenant and
+booking form, determine the cause, and merge only matching known causes. Leave
+unknown tenants for investigation.
+
+The explorer below demonstrates why identical subjects may belong to different
+causes and different subjects may describe the same cause. It runs the same logic
+used by the counts above.
+
+<DedupeExplorer />
+
+<RenderStamp {signature} />
